@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   get '/login' => 'decoder#login'
   get '/cin' => 'decoder#get_cin'
   get '/decode/result' => 'decoder#decode_cin'
+  get '/user/history' => "decoder#get_user_history"
+  # get '/user/cin/history' => "decoder#render_history"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
