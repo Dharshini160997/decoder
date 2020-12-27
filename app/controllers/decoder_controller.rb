@@ -1,6 +1,4 @@
 class DecoderController < ApplicationController
-  @@cache_hash = Hash.new()
-
   def login
     render :loginpage
   end
@@ -12,14 +10,14 @@ class DecoderController < ApplicationController
   def decode_cin
     begin
       cache_value = params['cin'] + '-' + Time.now.strftime("%d/%m/%Y %H:%M")
-      (@@cache_hash[params['user_name']] ||= []) << cache_value
-      if(@@cache_hash[params['cin']].blank?)
+      (session[params['user_name']] ||= []) << cache_value
+      (session[params['user_name']] ||= []) << cache_value
+      if(session[params['cin']].blank?)
         decoded_result = DecoderHelper.decoding(params['cin'])
-        @@cache_hash[params['cin']] = decoded_result
-        session[:cache] = @@cache_hash
+        session[params['cin']] = decoded_result
         render json:{code: 200,decoded_answer: render_to_string(partial: 'decoder/decoded_result', locals: {decoded_result:decoded_result})}
       else
-        render json:{code: 200,decoded_answer: render_to_string(partial: 'decoder/decoded_result', locals: {decoded_result:@@cache_hash[params['cin']]})}
+        render json:{code: 200,decoded_answer: render_to_string(partial: 'decoder/decoded_result', locals: {decoded_result:session[params['cin']]})}
       end
     rescue => exception
       render json:{code:500,error:exception.message}
@@ -29,7 +27,7 @@ class DecoderController < ApplicationController
     begin
       page = params['page'].blank? ? 1 : params['page'].to_i
       from_limit = ((page-1) * 10 ) + 1
-      records = @@cache_hash[params['user_name']].paginate(page:params[:page],per_page:10)
+      records =session[params['user_name']].paginate(page:params[:page],per_page:10)
       flash[:alert] = "Oops! You have no search history"
       render :partial => 'decoder/history_page' , :locals=>{search_record:records,username:params['user_name'],error:false,from_limit:from_limit}
     rescue => exception
