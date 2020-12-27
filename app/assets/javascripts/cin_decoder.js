@@ -34,7 +34,15 @@ $(document).ready(function()
   $(".login-btn").click(function(e){
     e.preventDefault()
     var username = $(".user-name").val();
-    window.location.href = "/cin?name="+username
+    if(username !== null && username != "")
+    {
+      window.location.href = "/cin?name="+username
+    }
+    else
+    {
+      alert("Please enter your name to continue!")
+    }
+    
   })
   $(".history-button").click(function(e){
     e.preventDefault()

@@ -1,31 +1,50 @@
 .decoded-details,.history-result{
-  margin-top: 40px;
+  margin-top: 20px;
   height: 100%;
 }
 
-.loginpage
+.loginpage,.cin-input-page
 {
-  width: 50%;
   margin: auto;
   padding: 10px;
   border:1px solid black;
-  margin-top: 50px;
+  margin-top: 200px;
+  margin-bottom: 100px;
+}
+.loginpage
+{
+  width: 50%;
+  height: 150px;
+  background-image: linear-gradient( 109.6deg,  rgba(121,203,202,1) 11.2%, rgba(119,161,211,1) 91.1% );
+}
+.cin-input-page
+{
+  height: 200px;
+  width: 70%;
+  text-align: center;
+  background-image: linear-gradient( 89.8deg,  rgba(204,156,223,1) 0.3%, rgba(155,219,245,1) 20.4%, rgba(245,183,208,1) 40.2%, rgba(250,186,98,1) 62.9%, rgba(234,238,240,1) 81.9%, rgba(250,245,171,1) 99.2% );}
+.login-btn
+{
+  margin-left: 260px;
+  margin-top: 10px;
 }
 .cin-input
 {
  height: 50px; 
  padding: 10px;
- width: 20%;
+ width: 30%;
 }
 .decode-button,.history-button
 {
   margin-top: 10px;
+  border: 1px solid black;
   height: 30px;
-  margin-left: 30px;
-  background-image: linear-gradient(to right, #304352 0%, #d7d2cc  51%, #304352  100%);
-  text-align: center;
-  text-transform: uppercase;
+  margin-left: 45px;
+  margin-right: 45px;
+  background-image: linear-gradient( 109.6deg,  rgba(121,203,202,1) 11.2%, rgba(119,161,211,1) 91.1% );  text-transform: uppercase;
   cursor: pointer;
 }
+
+
 
 
