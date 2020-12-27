@@ -11,7 +11,6 @@ class DecoderController < ApplicationController
     begin
       cache_value = params['cin'] + '-' + Time.now.strftime("%d/%m/%Y %H:%M")
       (session[params['user_name']] ||= []) << cache_value
-      (session[params['user_name']] ||= []) << cache_value
       if(session[params['cin']].blank?)
         decoded_result = DecoderHelper.decoding(params['cin'])
         session[params['cin']] = decoded_result

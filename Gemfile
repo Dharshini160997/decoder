@@ -63,3 +63,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'jquery-rails'
 gem 'will_paginate', '~> 3.1.1'
 gem 'will_paginate-bootstrap' 
+gem 'activerecord-session_store', github: 'rails/activerecord-session_store'

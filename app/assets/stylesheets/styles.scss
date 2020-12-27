@@ -1,0 +1,31 @@
+.decoded-details,.history-result{
+  margin-top: 40px;
+  height: 100%;
+}
+
+.loginpage
+{
+  width: 50%;
+  margin: auto;
+  padding: 10px;
+  border:1px solid black;
+  margin-top: 50px;
+}
+.cin-input
+{
+ height: 50px; 
+ padding: 10px;
+ width: 20%;
+}
+.decode-button,.history-button
+{
+  margin-top: 10px;
+  height: 30px;
+  margin-left: 30px;
+  background-image: linear-gradient(to right, #304352 0%, #d7d2cc  51%, #304352  100%);
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+

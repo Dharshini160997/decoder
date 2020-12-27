@@ -1,11 +1,10 @@
 $(document).ready(function()
 {
   $(".decode-button").click(function(){
-    var cin = $(".input").val()
+    var cin = $(".cin-input").val()
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     var user_name  = urlParams.get('name');
-    console.log(user_name)
 
 
     if (cin.length!=21)
@@ -20,7 +19,6 @@ $(document).ready(function()
         data:{cin:cin,user_name:user_name},
         success:function(result)
         {
-          console.log(result)
           if(result.code==200)
           {
             $(".result").html(result.decoded_answer)
