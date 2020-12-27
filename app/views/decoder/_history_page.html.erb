@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  </head>
+  <body>
+  <%if !error%>
+    <%if !search_record.blank?%>
+      <div class = "table-responsive">
+        <table class="table table-striped table-hover table-bordered">
+          <thead>
+            <tr>
+              <th class="col">id</th>
+              <th class="col">Searched by</th>
+              <th class="col">Searched for</th>
+              <th class="col">Searched at</th>
+            </tr>
+          </thead>
+          <%i=from_limit%>
+          <tbody>
+          <%search_record.each do |record|%>
+              <tr>
+                <th class="row"><%=i%></th>
+                <td><%=username%></td>
+                <td><%=record.split('-')[0]%></td>
+                <td><%=record.split('-')[1]%></td>
+              </tr>
+          <%i=i+1%>
+          <%end%>
+          </tbody>
+        </table>
+        <%page = 1%>
+      <div class="pagination pagination-sm">
+      <%= will_paginate search_record %>
+      </div>
+      </div>
+    <%else%>
+      <%=flash[:alert]%>
+    <%end%>
+  <%else%>
+  <img src = 'https://image.shutterstock.com/image-illustration/3d-illustration-cartoon-person-yellow-260nw-110085275.jpg'>
+  <%=message%>
+  <%end%>
+  </body>
+</html>
